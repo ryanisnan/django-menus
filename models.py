@@ -6,6 +6,7 @@ a restaurant may have a Lunch menu, and a Dinner menu.
 """
 class Menu(models.Model):
 	name = models.CharField(max_length=24, unique=True, verbose_name='menu name')
+	slug = models.SlugField(max_length=24, unique=True, help_text='The slug is the URL friendly version of the menu name, so that this can be accessed at a URL like mysite.com/menus/dinner/.')
 	additional_text = models.CharField(max_length=128, null=True, blank=True, help_text='Any additional text that the menu might need, i.e. Served between 11:00am and 4:00pm.')
 	order = models.PositiveSmallIntegerField(default=0, help_text='The order of the menu determines where this menu appears alongside other menus.')
 	
